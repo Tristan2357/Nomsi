@@ -17,6 +17,7 @@
     "vue-router": "^3.2.0"
   },
   "devDependencies": {
+    "@tailwindcss/postcss7-compat": "^2.2.17",
     "@typescript-eslint/eslint-plugin": "^2.33.0",
     "@typescript-eslint/parser": "^2.33.0",
     "@vue/cli-plugin-babel": "~4.5.0",
@@ -25,10 +26,14 @@
     "@vue/cli-plugin-typescript": "~4.5.0",
     "@vue/cli-service": "~4.5.0",
     "@vue/eslint-config-typescript": "^5.0.2",
+    "autoprefixer": "^9",
     "eslint": "^6.7.2",
     "eslint-plugin-vue": "^6.2.2",
+    "postcss": "^7",
+    "tailwindcss": "npm:@tailwindcss/postcss7-compat@^2.2.17",
     "typescript": "~3.9.3",
     "vue-cli-plugin-nuxt": "~1.0.0-alpha.0",
+    "vue-cli-plugin-tailwind": "~2.2.18",
     "vue-template-compiler": "^2.6.11"
   }
 }
