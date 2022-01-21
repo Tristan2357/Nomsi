@@ -8,8 +8,6 @@ import io.ktor.jackson.*
 import io.ktor.response.*
 import io.ktor.routing.*
 import models.User
-import social.socials.Reddit
-import social.socials.Twitter
 import kotlin.js.ExperimentalJsExport
 
 fun main(args: Array<String>): Unit = io.ktor.server.netty.EngineMain.main(args)
@@ -85,9 +83,6 @@ fun Application.module() {
       }
       get("/user") {
         call.respond(User("Tristan", "Eisermann", 22))
-      }
-      get("/socials") {
-        call.respond(listOf(Twitter("SirTirstan"), Reddit("SirTirstan")))
       }
     }
   }
