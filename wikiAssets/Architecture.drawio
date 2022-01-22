@@ -1,0 +1,46 @@
+<mxfile host="app.diagrams.net" modified="2022-01-22T09:52:10.492Z" agent="5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/97.0.4692.71 Safari/537.36 OPR/83.0.4254.19" etag="xNS6a2_ukOYaLa0xfQIC" version="16.4.5" type="github">
+  <diagram id="prtHgNgQTEPvFCAcTncT" name="Page-1">
+    <mxGraphModel dx="861" dy="1321" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="6LwPKS_93GUts4v4I5X7-1" value="Nomsi" style="swimlane;fillColor=#B3B3B3;fontColor=#000000;labelBackgroundColor=none;swimlaneFillColor=#CCCCCC;" vertex="1" parent="1">
+          <mxGeometry x="40" y="40" width="760" height="400" as="geometry" />
+        </mxCell>
+        <mxCell id="6LwPKS_93GUts4v4I5X7-6" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;entryPerimeter=0;fontColor=#000000;labelBackgroundColor=none;" edge="1" parent="6LwPKS_93GUts4v4I5X7-1" source="6LwPKS_93GUts4v4I5X7-2" target="6LwPKS_93GUts4v4I5X7-5">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="6LwPKS_93GUts4v4I5X7-8" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.75;exitDx=0;exitDy=0;entryX=0.25;entryY=0;entryDx=0;entryDy=0;fontColor=#000000;labelBackgroundColor=none;" edge="1" parent="6LwPKS_93GUts4v4I5X7-1" source="6LwPKS_93GUts4v4I5X7-2" target="6LwPKS_93GUts4v4I5X7-4">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="6LwPKS_93GUts4v4I5X7-2" value="&lt;b&gt;Server&lt;br&gt;Ktor Backend&lt;/b&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;fontColor=#000000;labelBackgroundColor=none;" vertex="1" parent="6LwPKS_93GUts4v4I5X7-1">
+          <mxGeometry x="40" y="80" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="6LwPKS_93GUts4v4I5X7-9" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.75;exitDx=0;exitDy=0;entryX=0.75;entryY=0;entryDx=0;entryDy=0;fontColor=#000000;labelBackgroundColor=none;" edge="1" parent="6LwPKS_93GUts4v4I5X7-1" source="6LwPKS_93GUts4v4I5X7-3" target="6LwPKS_93GUts4v4I5X7-4">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="6LwPKS_93GUts4v4I5X7-3" value="&lt;b&gt;Client&lt;br&gt;Vue.js Frontend&lt;/b&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;fontColor=#000000;labelBackgroundColor=none;" vertex="1" parent="6LwPKS_93GUts4v4I5X7-1">
+          <mxGeometry x="560" y="80" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="6LwPKS_93GUts4v4I5X7-4" value="&lt;b&gt;Shared&lt;br&gt;Kotlin Models&lt;/b&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;fontColor=#000000;labelBackgroundColor=none;" vertex="1" parent="6LwPKS_93GUts4v4I5X7-1">
+          <mxGeometry x="314" y="200" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="6LwPKS_93GUts4v4I5X7-5" value="&lt;b&gt;Database&lt;br&gt;MongoDB&lt;/b&gt;" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;fillColor=none;fontColor=#000000;labelBackgroundColor=none;" vertex="1" parent="6LwPKS_93GUts4v4I5X7-1">
+          <mxGeometry x="70" y="250" width="60" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="6LwPKS_93GUts4v4I5X7-15" value="" style="endArrow=classic;html=1;rounded=0;entryX=0;entryY=0.25;entryDx=0;entryDy=0;exitX=1;exitY=0.25;exitDx=0;exitDy=0;startArrow=classic;startFill=1;fontColor=#000000;labelBackgroundColor=none;" edge="1" parent="6LwPKS_93GUts4v4I5X7-1" source="6LwPKS_93GUts4v4I5X7-2" target="6LwPKS_93GUts4v4I5X7-3">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="350" y="90" as="sourcePoint" />
+            <mxPoint x="450" y="90" as="targetPoint" />
+            <Array as="points" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="6LwPKS_93GUts4v4I5X7-16" value="&amp;nbsp; Rest API&amp;nbsp;&amp;nbsp;" style="edgeLabel;resizable=0;html=1;align=center;verticalAlign=middle;fontColor=#000000;labelBackgroundColor=#CCCCCC;fontStyle=1;labelBorderColor=#CCCCCC;spacing=10;horizontal=1;spacingTop=10;spacingLeft=10;spacingBottom=10;spacingRight=10;" connectable="0" vertex="1" parent="6LwPKS_93GUts4v4I5X7-15">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="14" as="offset" />
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
