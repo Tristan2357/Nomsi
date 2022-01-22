@@ -1,13 +1,16 @@
 package de.nomsi
 
+import de.nomsi.routing.recipeApi
 import io.ktor.application.*
 import io.ktor.features.*
 import io.ktor.http.*
 import io.ktor.http.content.*
-import io.ktor.jackson.*
 import io.ktor.response.*
 import io.ktor.routing.*
+import io.ktor.serialization.*
 import models.User
+import org.litote.kmongo.coroutine.*
+import org.litote.kmongo.reactivestreams.*
 import kotlin.js.ExperimentalJsExport
 
 fun main(args: Array<String>): Unit = io.ktor.server.netty.EngineMain.main(args)
@@ -51,7 +54,7 @@ fun Application.module() {
   }
 
   install(ContentNegotiation) {
-    jackson {}
+    json()
   }
 
   routing {
@@ -78,12 +81,7 @@ fun Application.module() {
 
     // actual API code
     route("/api") {
-      get("/test") {
-        call.respond("Test respond Text")
-      }
-      get("/user") {
-        call.respond(User("Tristan", "Eisermann", 22))
-      }
+      recipeApi()
     }
   }
 }
@@ -91,3 +89,5 @@ fun Application.module() {
 val Application.envKind get() = environment.config.propertyOrNull("ktor.environment")?.getString()
 val Application.isDev get() = envKind != null && envKind == "dev"
 val Application.isProd get() = envKind != null && envKind != "dev"
+
+val client = KMongo.createClient().coroutine

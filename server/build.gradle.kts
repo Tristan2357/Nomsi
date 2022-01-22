@@ -1,10 +1,13 @@
 val ktorVersion: String by project
 val kotlinVersion: String by project
+val serializationVersion: String by project
+val kmongoVersion: String by project
 val logbackVersion: String by project
 
 plugins {
     application
     kotlin("jvm") version "1.6.10"
+    kotlin("plugin.serialization") version "1.6.10"
 }
 
 group = "de.nomsi"
@@ -25,11 +28,14 @@ repositories {
 dependencies {
     implementation(project(":shared"))
     implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlinVersion")
+    implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:$serializationVersion")
+    implementation("io.ktor:ktor-serialization:$ktorVersion")
     implementation("io.ktor:ktor-server-netty:$ktorVersion")
-    implementation("ch.qos.logback:logback-classic:$logbackVersion")
     implementation("io.ktor:ktor-server-core:$ktorVersion")
     implementation("io.ktor:ktor-server-host-common:$ktorVersion")
-    implementation("io.ktor:ktor-jackson:$ktorVersion")
+    implementation("ch.qos.logback:logback-classic:$logbackVersion")
+    implementation("org.litote.kmongo:kmongo-coroutine-serialization:$kmongoVersion")
+    implementation("org.litote.kmongo:kmongo-id-serialization:$kmongoVersion")
     testImplementation("io.ktor:ktor-server-tests:$ktorVersion")
 }
 
@@ -55,6 +61,10 @@ val setDev = tasks.register("setDev") {
     env = "development"
 }
 
+tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile>().configureEach {
+    kotlinOptions.freeCompilerArgs += "-opt-in=kotlin.js.ExperimentalJsExport"
+}
+
 tasks.processResources {
     outputs.upToDateWhen { false }
     filesMatching("*.conf") {
@@ -78,14 +88,6 @@ tasks.processResources {
         }
     }
 }
-
-//val addTypes = tasks.register<Copy>("addTypes") {
-//    outputs.upToDateWhen { false }
-//    delete("$projectDir/src/types/")
-//    from("../shared/build/libs/kt-jvm/")
-//    include("**/*.kt")
-//    into("$projectDir/src/types/")
-//}
 
 tasks {
     "run" {
