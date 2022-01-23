@@ -1,18 +1,18 @@
 <template>
-  <div class="home">
-    <HelloWorld msg="Welcome to Your Vue.js + Ktor App with Shared Types!"/>
-    <img alt="Ktor Logo" :src=" assets + 'ktor_logo.svg'">
-    <h1>+</h1>
-    <img alt="Vue logo" src="../assets/logo.png">
+  <div id="home">
+    <RecipeSearch class="mt-6 w-full"/>
+    <RecipeGrid/>
   </div>
 </template>
 
 <script lang="ts">
 import {Component, Vue} from 'vue-property-decorator';
-import HelloWorld from '@/components/HelloWorld.vue'; // @ is an alias to /src
+import RecipeSearch from '@/components/RecipeSearch.vue'; // @ is an alias to /src
+import RecipeGrid from '@/components/RecipeGrid.vue';
 @Component({
   components: {
-    HelloWorld,
+    RecipeSearch,
+    RecipeGrid
   },
 })
 export default class Home extends Vue {

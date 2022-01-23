@@ -7,9 +7,17 @@
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint"
   },
+  "vue": {
+    "devServer": {
+      "host": "0.0.0.0",
+      "port": 8080
+    }
+  },
   "dependencies": {
-    "axios": "^0.21.1",
+    "@tailwindcss/forms": "^0.4.0",
+    "axios": "^0.25.0",
     "core-js": "^3.6.5",
+    "material-design-icons": "^3.0.1",
     "shared-types": "file:../shared/build/libs/shared-types/",
     "vue": "^2.6.11",
     "vue-class-component": "^7.2.3",
@@ -18,22 +26,20 @@
   },
   "devDependencies": {
     "@tailwindcss/postcss7-compat": "^2.2.17",
-    "@typescript-eslint/eslint-plugin": "^2.33.0",
-    "@typescript-eslint/parser": "^2.33.0",
+    "@typescript-eslint/eslint-plugin": "^4.33.0",
+    "@typescript-eslint/parser": "^4.33.0",
     "@vue/cli-plugin-babel": "~4.5.0",
     "@vue/cli-plugin-eslint": "~4.5.0",
     "@vue/cli-plugin-router": "~4.5.0",
     "@vue/cli-plugin-typescript": "~4.5.0",
     "@vue/cli-service": "~4.5.0",
-    "@vue/eslint-config-typescript": "^5.0.2",
-    "autoprefixer": "^9",
-    "eslint": "^6.7.2",
-    "eslint-plugin-vue": "^6.2.2",
-    "postcss": "^7",
+    "@vue/eslint-config-typescript": "7.0.0",
+    "autoprefixer": "^9.8.8",
+    "eslint": "6.8.0",
+    "eslint-plugin-vue": "7.20.0",
+    "postcss": "^7.0.39",
     "tailwindcss": "npm:@tailwindcss/postcss7-compat@^2.2.17",
-    "typescript": "~3.9.3",
-    "vue-cli-plugin-nuxt": "~1.0.0-alpha.0",
-    "vue-cli-plugin-tailwind": "~2.2.18",
+    "typescript": "~4.5.5",
     "vue-template-compiler": "^2.6.11"
   }
 }

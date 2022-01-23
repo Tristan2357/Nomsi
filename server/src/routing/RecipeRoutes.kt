@@ -1,6 +1,7 @@
 package de.nomsi.routing
 
 import de.nomsi.client
+import de.nomsi.populateWithRecipes
 import io.ktor.application.*
 import io.ktor.http.*
 import io.ktor.request.*
@@ -29,6 +30,10 @@ fun Route.recipeApi() {
     delete("/{id}") {
       val id = call.parameters["id"] ?: error("Invalid delete request")
       collection.deleteOne(Recipe::id eq id)
+      call.respond(HttpStatusCode.OK)
+    }
+    get("/generate") {
+      collection.insertMany(populateWithRecipes(2))
       call.respond(HttpStatusCode.OK)
     }
   }
