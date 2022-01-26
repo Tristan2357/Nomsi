@@ -4,6 +4,7 @@ val serializationVersion: String by project
 plugins {
   kotlin("multiplatform") version "1.6.10"
   kotlin("plugin.serialization") version "1.6.10"
+  id("io.gitlab.arturbosch.detekt").version("1.19.0")
 }
 
 group = "de.nomsi"
@@ -31,6 +32,24 @@ kotlin {
   }
 }
 
+detekt {
+  source = files("src", "test")
+  parallel = true
+  config = files("../detekt.yml")
+  buildUponDefaultConfig = false
+  allRules = true
+  baseline = file("baseline.xml")
+  debug = true
+  basePath = "./"
+  // If set to `true` the build does not fail when the
+  // maxIssues count was reached. Defaults to `false`.
+  ignoreFailures = false
+
+  ignoredBuildTypes = listOf("release")
+  ignoredFlavors = listOf("production")
+  ignoredVariants = listOf("productionRelease")
+}
+
 tasks {
   "build" {
     doLast {
@@ -47,4 +66,8 @@ tasks {
     }
     finalizedBy(":client:addPackage")
   }
+}
+
+tasks.getByPath("detekt").onlyIf {
+  gradle.startParameter.taskNames.contains("detekt") || gradle.startParameter.taskNames.contains("check")
 }

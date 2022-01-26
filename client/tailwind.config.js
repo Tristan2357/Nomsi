@@ -1,28 +1,28 @@
-const colors = require('tailwindcss/colors')
+const colors = require("tailwindcss/colors");
 
 module.exports = {
-  purge: ['./public/**/*.html', './src/**/*.{vue,js,ts,jsx,tsx}'],
-  darkMode: 'media',
+  purge: ["./public/**/*.html", "./src/**/*.{vue,js,ts,jsx,tsx}"],
+  darkMode: "media",
   theme: {
     extend: {},
     colors: {
-      transparent: 'transparent',
-      current: 'currentColor',
+      transparent: "transparent",
+      current: "currentColor",
       black: colors.black,
       white: colors.white,
       carrib: {
-        lightest: '#22ffc4',
-        light: '#00f1b1',
-        DEFAULT: '#00C28E',
-        dark: '#00a579',
-        darkest: '#008863',
+        lightest: "#22ffc4",
+        light: "#00f1b1",
+        DEFAULT: "#00C28E",
+        dark: "#00a579",
+        darkest: "#008863",
       },
       paradise: {
-        lightest: '#ff5b94',
-        light: '#ff387d',
-        DEFAULT: '#ff1669',
-        dark: '#ea0052',
-        darkest: '#c10043'
+        lightest: "#ff5b94",
+        light: "#ff387d",
+        DEFAULT: "#ff1669",
+        dark: "#ea0052",
+        darkest: "#c10043",
       },
       rose: colors.rose,
       pink: colors.pink,
@@ -46,12 +46,10 @@ module.exports = {
       gray: colors.gray,
       coolGray: colors.coolGray,
       blueGray: colors.blueGray,
-    }
+    },
   },
   variants: {
     extend: {},
   },
-  plugins: [
-    require('@tailwindcss/forms')
-  ],
-}
+  plugins: [require("@tailwindcss/forms")],
+};
