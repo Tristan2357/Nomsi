@@ -1,14 +1,13 @@
-# Ktor - Vue.js + TypeScript - Type Sharing
+# Nomsi
+
+[![CI](https://github.com/Tristan2357/Nomsi/actions/workflows/github-action.yml/badge.svg)](https://github.com/Tristan2357/Nomsi/actions/workflows/github-action.yml)
+[![CodeFactor](https://www.codefactor.io/repository/github/tristan2357/nomsi/badge/main)](https://www.codefactor.io/repository/github/tristan2357/nomsi/overview/main) 
+[![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)](https://github.com/prettier/prettier)
+[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
 
 ### Description
-This is an example project for using the new IR compiler of kotlin. Defined classes
-from the shared project are distributed to the server and client at the same time using the IR compiler for the client (to create TypeScript Definition files)
-and normal JVM compilation for server side (to create a local dependency).
+This Readme is WIP and will be updated in the future
 
-### Prerequisites
-Following tools should be installed on your machine (only tested on Ubuntu):
-- Locally installed Yarn
-- Java 8 & 11
 
 ### Getting Started
 Directly after a clone you have to initiate one first build:
