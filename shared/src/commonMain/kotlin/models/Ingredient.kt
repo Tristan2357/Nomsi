@@ -7,4 +7,4 @@ import kotlin.js.JsExport
 @Serializable
 @ExperimentalJsExport
 @JsExport
-data class Ingredient (val name: String, val amount: Int)
+data class Ingredient(val name: String, val amount: Int)

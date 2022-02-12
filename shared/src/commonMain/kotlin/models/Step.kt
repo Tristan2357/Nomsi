@@ -7,4 +7,4 @@ import kotlin.js.JsExport
 @Serializable
 @ExperimentalJsExport
 @JsExport
-data class Step (val description: String)
+data class Step(val description: String)

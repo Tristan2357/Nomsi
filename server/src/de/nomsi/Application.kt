@@ -17,7 +17,11 @@ import kotlin.js.ExperimentalJsExport
 import kotlin.random.Random
 
 
-fun main(args: Array<String>): Unit = io.ktor.server.netty.EngineMain.main(args)
+fun main(args: Array<String>) = io.ktor.server.netty.EngineMain.main(args)
+
+private const val TEN_MINUTES = 600
+
+private const val ONE_HOUR = 3600
 
 @ExperimentalJsExport
 @Suppress("unused") // Referenced in application.conf
@@ -35,13 +39,13 @@ fun Application.module() {
     allowNonSimpleContentTypes = true
     // allowCredentials = true
 
-    anyHost() // @TODO: Don't do this in production if possible. Try to limit it.
+    anyHost()
   }
 
   install(CachingHeaders) {
     val noCache = CachingOptions(CacheControl.NoCache(CacheControl.Visibility.Public))
-    val lazy = CachingOptions(CacheControl.MaxAge(maxAgeSeconds = 60 * 10)) // 10 minutes
-    val superLazy = CachingOptions(CacheControl.MaxAge(maxAgeSeconds = 60 * 60)) // 1 hour
+    val lazy = CachingOptions(CacheControl.MaxAge(maxAgeSeconds = TEN_MINUTES))
+    val superLazy = CachingOptions(CacheControl.MaxAge(maxAgeSeconds = ONE_HOUR))
     options { outgoingContent ->
       when (outgoingContent.contentType?.withoutParameters()) {
         ContentType.Text.Html -> noCache
@@ -96,7 +100,9 @@ val Application.isProd get() = envKind != null && envKind != "dev"
 
 val client = KMongo.createClient().coroutine
 
+@Suppress("MagicNumber", "ForbiddenComment")
 fun populateWithRecipes(amount: Int): MutableList<Recipe> {
+  // TODO: 12.02.22 Remove all of this shit
   val recipes: MutableList<Recipe> = ArrayList()
   val ingredientList = listOf(
     Ingredient("Tofu", 2),
@@ -118,7 +124,13 @@ fun populateWithRecipes(amount: Int): MutableList<Recipe> {
   val randomIngredients = ingredientList.asSequence().shuffled().take(Random.nextInt(5)).toList()
   val randomSteps = stepList.asSequence().shuffled().take(Random.nextInt(5)).toList()
   for (i in 0..amount) {
-    recipes.add(Recipe("testRecipe Nr${i} with a really really really long long name", randomIngredients, randomSteps))
+    recipes.add(
+      Recipe(
+        "testRecipe Nr${i} with a really really really long long name",
+        randomIngredients,
+        randomSteps
+      )
+    )
   }
   return recipes
 }
