@@ -1,5 +1,5 @@
 <template>
-  <div id="home">
+  <div id="home" class="h-full">
     <RecipeSearch class="mt-6 w-full" />
     <RecipeGrid />
   </div>
@@ -7,7 +7,7 @@
 
 <script lang="ts">
 import { Component, Vue } from "vue-property-decorator";
-import RecipeSearch from "@/components/RecipeSearch.vue"; // @ is an alias to /src
+import RecipeSearch from "@/components/RecipeSearch.vue";
 import RecipeGrid from "@/components/RecipeGrid.vue";
 @Component({
   components: {

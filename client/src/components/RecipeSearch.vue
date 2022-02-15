@@ -2,7 +2,7 @@
   <div id="recipeSearch w-full">
     <input
       type="search"
-      class="rounded-lg bg-transparent mx-4 w-5/6"
+      class="rounded-lg dark:bg-white bg-trueGray-900 mx-4 w-5/6 border"
       v-on:keyup.enter="populate"
     />
   </div>
@@ -19,6 +19,7 @@ export default class RecipeSearch extends Vue {
       .get("/recipe/generate")
       .then((res) => {
         console.log(res);
+        // TODO
       })
       .catch((err) => {
         console.log(err);
