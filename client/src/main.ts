@@ -1,15 +1,10 @@
-import Vue from "vue";
-import App from "./Main.vue";
+import { createApp } from "vue";
+import App from "./App.vue";
 import router from "./router";
 import axios from "axios";
-import "./assets/tailwind.css";
-import "./assets/main.css";
 
-Vue.config.productionTip = false;
+axios.defaults.baseURL = import.meta.env.VITE_API;
 
-axios.defaults.baseURL = process.env.VUE_APP_API;
-
-new Vue({
-  router,
-  render: (h) => h(App),
-}).$mount("#app");
+const app = createApp(App);
+app.use(router);
+app.mount("#app");

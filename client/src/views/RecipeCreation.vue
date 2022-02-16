@@ -38,18 +38,13 @@
   </div>
 </template>
 
-<script lang="ts">
-import { Component, Vue } from "vue-property-decorator";
+<script lang="ts" setup>
+import type { Ref } from "vue";
+import { ref } from "vue";
 
-@Component({
-  components: {},
-})
-export default class RecipeCreation extends Vue {
-  el = "#demo";
-  msg = "";
-  checked = "";
-  picked = "";
-  selected = "";
-  multiSelect = [];
-}
+const msg: Ref<string> = ref("");
+const checked: Ref<boolean> = ref(false);
+const picked: Ref<string> = ref("");
+const selected: Ref<string> = ref("");
+const multiSelect: Ref<string[]> = ref([]);
 </script>

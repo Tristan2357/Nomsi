@@ -23,6 +23,11 @@ comments:
   UndocumentedPublicProperty:
     active: false
 
+potential-bugs:
+  MissingPackageDeclaration:
+      active: true
+      excludes: ['**/shared/src/commonMain/kotlin/**']
+
 style:
   WildcardImport:
       active: true

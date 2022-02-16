@@ -1,13 +1,12 @@
 package de.nomsi.routing
 
+import Recipe
 import de.nomsi.client
-import de.nomsi.populateWithRecipes
 import io.ktor.application.*
 import io.ktor.http.*
 import io.ktor.request.*
 import io.ktor.response.*
 import io.ktor.routing.*
-import models.Recipe
 import org.litote.kmongo.eq
 
 val database = client.getDatabase("recipe")
@@ -30,10 +29,6 @@ fun Route.recipeApi() {
     delete("/{id}") {
       val id = call.parameters["id"] ?: error("Invalid delete request")
       collection.deleteOne(Recipe::id eq id)
-      call.respond(HttpStatusCode.OK)
-    }
-    get("/generate") {
-      collection.insertMany(populateWithRecipes(2))
       call.respond(HttpStatusCode.OK)
     }
   }

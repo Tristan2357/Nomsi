@@ -1,30 +1,23 @@
 <template>
   <div id="recipeSearch w-full">
     <input
-      type="search"
       class="rounded-lg dark:bg-white bg-trueGray-900 mx-4 w-5/6 border"
-      v-on:keyup.enter="populate"
+      type="search"
+      v-bind:value="searchTerm"
+      v-on:keydown.enter="lookup(searchTerm)"
     />
   </div>
 </template>
 
-<script lang="ts">
-import { Component, Vue } from "vue-property-decorator";
-import axios from "axios";
+<script lang="ts" setup>
+import { ref } from "vue";
+import type { Ref } from "vue";
 
-@Component
-export default class RecipeSearch extends Vue {
-  populate(): void {
-    axios
-      .get("/recipe/generate")
-      .then((res) => {
-        console.log(res);
-        // TODO
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  }
+const searchTerm: Ref = ref("");
+
+function lookup(searchTerm: string) {
+  // TODO implement search
+  return "Not implemented";
 }
 </script>
 

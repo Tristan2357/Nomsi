@@ -47,8 +47,10 @@ sourceSets["main"].resources.srcDirs("resources")
 sourceSets["test"].resources.srcDirs("resources")
 
 val fatJar = task("fatJar", type = org.gradle.jvm.tasks.Jar::class) {
+  duplicatesStrategy = DuplicatesStrategy.INCLUDE
+
   manifest {
-    attributes["Implementation-Title"] = "Ktor - Vue Fat Jar"
+    attributes["Implementation-Title"] = "Nomsi Fat Jar"
     attributes["Implementation-Version"] = project.version
     attributes["Main-Class"] = "io.ktor.server.netty.EngineMain"
   }

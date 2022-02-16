@@ -12,34 +12,47 @@
         </p>
       </li>
     </ul>
+    <ol>
+      <li
+        v-for="(step, index) in steps"
+        :key="step.description"
+        class="text-left pl-16"
+      >
+        <p>
+          -
+          {{ step.number !== -1 ? step.number : index + 1 }}
+          <b>{{ step.description }}</b>
+        </p>
+      </li>
+    </ol>
   </div>
 </template>
 
-<script lang="ts">
-import { Component, Vue } from "vue-property-decorator";
+<script lang="ts" setup>
 import axios from "axios";
-import { models } from "shared-types";
-import Recipe = models.Recipe;
-import Ingredient = models.Ingredient;
+import type { Ingredient } from "shared-types";
+import { Recipe, Step } from "shared-types";
+import type { Ref } from "vue";
+import { onMounted, ref } from "vue";
+import { useRoute } from "vue-router";
 
-@Component({
-  components: {},
-})
-export default class RecipePreview extends Vue {
-  private recipe: Recipe = new Recipe("", [], [], "");
-  private ingredients: Ingredient[] | null = null;
+const route = useRoute();
 
-  mounted(): void {
-    axios
-      .get<Recipe>(`/recipe/${this.$route.params.id}`)
-      .then((res) => {
-        console.log(res);
-        this.recipe = res.data;
-        this.ingredients = this.recipe?.ingredients;
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  }
-}
+const recipe: Ref<Recipe> = ref(new Recipe("", "", [], []));
+const steps: Ref<Step[]> = ref([]);
+const ingredients: Ref<Ingredient[]> = ref([]);
+
+onMounted(() => {
+  axios
+    .get<Recipe>(`/recipe/${route.params.id}`)
+    .then((res) => {
+      console.log(res);
+      recipe.value = res.data;
+      ingredients.value = recipe.value?.ingredients;
+      steps.value = recipe.value?.steps;
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+});
 </script>

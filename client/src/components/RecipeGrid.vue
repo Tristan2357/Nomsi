@@ -31,41 +31,32 @@
   </div>
 </template>
 
-<script lang="ts">
-import { Component, Prop, Vue } from "vue-property-decorator";
-import axios, { AxiosError } from "axios";
-import { models } from "shared-types";
-import Recipe = models.Recipe;
+<script lang="ts" setup>
+import type { Ref } from "vue";
+import { onMounted, ref } from "vue";
+import axios from "axios";
+import { useRouter } from "vue-router";
+import type { Recipe } from "shared-types";
 
-@Component
-export default class RecipeGrid extends Vue {
-  @Prop() private msg!: string;
-  private recipes: Recipe[] | null = null;
-  private err: AxiosError | null = null;
+let recipes: Ref<Recipe[]> = ref([]);
 
-  getRecipes(): void {
-    if (!this.recipes) {
-      axios
-        .get<Recipe[]>("/recipe")
-        .then((res) => {
-          console.log(res);
-          this.recipes = res.data;
-        })
-        .catch((err: AxiosError) => {
-          this.err = err;
-          console.log(err);
-        });
-    }
-  }
+const router = useRouter();
 
-  navigateToPreview(key: string): void {
-    this.$router.push(`recipe/preview/${key}`);
-  }
-
-  mounted(): void {
-    this.getRecipes();
+function getRecipes(): void {
+  if (recipes.value.length === 0) {
+    axios.get<Recipe[]>("/recipe").then((res) => {
+      recipes.value = res.data;
+    });
   }
 }
+
+function navigateToPreview(key: string): void {
+  router.push(`/recipe/preview/${key}`);
+}
+
+onMounted(() => {
+  getRecipes();
+});
 </script>
 
 <style scoped></style>
