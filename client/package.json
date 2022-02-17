@@ -7,7 +7,6 @@
     "serve": "vite --port 8080",
     "build": "vue-tsc --noEmit && vite build",
     "typecheck": "vue-tsc --noEmit",
-    "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix --ignore-path .gitignore",
     "pretty": "prettier --write \"**/*.{js,jsx,ts,tsx,vue,css,scss,html,md,json,yml}\"",
     "pretty:check": "prettier --check . && vue-cli-service lint"
   },

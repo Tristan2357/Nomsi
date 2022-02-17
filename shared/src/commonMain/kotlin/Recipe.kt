@@ -7,10 +7,10 @@ import kotlin.js.JsExport
 @JsExport
 @Serializable
 data class Recipe(
-  val id: String = uuid4().toString(),
   val title: String,
   val ingredients: Array<Ingredient>,
-  val steps: Array<Step>
+  val steps: Array<Step>,
+  val id: String = uuid4().toString()
 ) {
   override fun equals(other: Any?): Boolean {
     if (this === other) return true

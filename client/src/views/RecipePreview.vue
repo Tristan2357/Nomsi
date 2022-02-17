@@ -38,7 +38,7 @@ import { useRoute } from "vue-router";
 
 const route = useRoute();
 
-const recipe: Ref<Recipe> = ref(new Recipe("", "", [], []));
+const recipe: Ref<Recipe> = ref(new Recipe("", [], [], ""));
 const steps: Ref<Step[]> = ref([]);
 const ingredients: Ref<Ingredient[]> = ref([]);
 
@@ -46,7 +46,6 @@ onMounted(() => {
   axios
     .get<Recipe>(`/recipe/${route.params.id}`)
     .then((res) => {
-      console.log(res);
       recipe.value = res.data;
       ingredients.value = recipe.value?.ingredients;
       steps.value = recipe.value?.steps;
