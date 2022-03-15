@@ -1,0 +1,56 @@
+$dark-mode-primary      : #00C28E;
+$dark-mode-secondary    : #FF1669;
+$dark-mode-on-primary   : white;
+$dark-mode-on-secondary : white;
+
+
+@use "@material/theme" with (
+  $primary: #FF1669,
+  $secondary: #00C28E,
+  $on-primary: black,
+  $on-secondary: black,
+  $surface: #262626,
+  $background: #262626
+);
+
+@use "@material/button/styles" as button;
+@use "@material/select/styles" as select;
+@use "@material/fab";
+@use "@material/list";
+@use "@material/list/mdc-list";
+@use "@material/menu-surface/mdc-menu-surface";
+@use "@material/menu/mdc-menu";
+@use "@material/textfield";
+@use "@material/floating-label/mdc-floating-label";
+@use "@material/line-ripple/mdc-line-ripple";
+@use "@material/notched-outline/mdc-notched-outline";
+
+
+@include fab.core-styles;
+@include textfield.core-styles;
+@include list.core-styles;
+
+@import url("https://fonts.googleapis.com/icon?family=Material+Icons");
+@import url("https://fonts.googleapis.com/css?family=Roboto:300,400,500");
+@import url("https://fonts.googleapis.com/css?family=Roboto+Mono:300,400,500");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  @media screen and (prefers-color-scheme : dark) {
+    --mdc-theme-background   : #262626;
+    --mdc-theme-on-primary   : #{$dark-mode-on-primary};
+    --mdc-theme-on-secondary : #{$dark-mode-on-secondary};
+    --mdc-theme-primary      : #{$dark-mode-primary};
+    --mdc-theme-secondary    : #{$dark-mode-secondary};
+    --mdc-theme-surface      : #262626;
+  }
+}
+
+@media screen and (prefers-color-scheme : dark) {
+  .mdc-list-item__text {
+    color : white;
+  }
+}

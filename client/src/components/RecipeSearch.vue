@@ -1,17 +1,15 @@
 <template>
   <div id="recipeSearch w-full">
     <input
-      class="rounded-lg dark:bg-white bg-trueGray-900 mx-4 w-5/6 border"
-      type="search"
-      v-bind:value="searchTerm"
-      v-on:keydown.enter="lookup(searchTerm)"
+      class="rounded-lg dark:!bg-white !bg-neutral-900 mx-4 border"
+      icon="search"
     />
   </div>
 </template>
 
 <script lang="ts" setup>
-import { ref } from "vue";
 import type { Ref } from "vue";
+import { ref } from "vue";
 
 const searchTerm: Ref = ref("");
 

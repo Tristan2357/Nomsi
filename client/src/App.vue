@@ -1,17 +1,22 @@
 <template>
-  <NavBar />
-  <div
-    class="bg-trueGray-100 dark:bg-trueGray-800 text-center h-screen w-screen absolute inset-0 flex flex-col"
-  >
-    <div class="flex w-screen justify-around h-full">
-      <RouterView class="max-w-4xl lg:shadow-lg dark:shadow-trueGray-900" />
-    </div>
+  <div class="flex flex-col h-screen">
+    <header>
+      <NavBar/>
+    </header>
+    <main
+      class="bg-neutral-100 dark:bg-neutral-800 text-center inset-0 flex flex-col flex-grow"
+    >
+      <div class="flex flex-col justify-around">
+        <RouterView
+          class="max-w-4xl lg:shadow-lg dark:shadow-neutral-900 h-full"
+        />
+      </div>
+    </main>
   </div>
 </template>
-
+0
 <style></style>
 
 <script lang="ts" setup>
 import { RouterView } from "vue-router";
-import NavBar from "./components/NavBar.vue";
-</script>
+import NavBar from "./components/NavBar.vue";</script>

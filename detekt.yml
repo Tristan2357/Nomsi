@@ -26,7 +26,7 @@ comments:
 potential-bugs:
   MissingPackageDeclaration:
       active: true
-      excludes: ['**/shared/src/commonMain/kotlin/**']
+      excludes: ['**/*gradle.kts']
 
 style:
   WildcardImport:

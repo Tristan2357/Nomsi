@@ -1,6 +1,6 @@
 package de.nomsi.routing
 
-import Recipe
+import de.nomsi.models.Recipe
 import de.nomsi.client
 import io.ktor.application.*
 import io.ktor.http.*

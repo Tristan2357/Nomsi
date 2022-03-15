@@ -27,7 +27,6 @@ repositories {
 }
 
 dependencies {
-  implementation(project(":shared"))
   implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlinVersion")
   implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:$serializationVersion")
   implementation("io.ktor:ktor-serialization:$ktorVersion")
@@ -80,10 +79,6 @@ detekt {
   ignoredBuildTypes = listOf("release")
   ignoredFlavors = listOf("production")
   ignoredVariants = listOf("productionRelease")
-}
-
-tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile>().configureEach {
-  kotlinOptions.freeCompilerArgs += "-opt-in=kotlin.js.ExperimentalJsExport"
 }
 
 tasks.processResources {

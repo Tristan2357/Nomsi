@@ -13,16 +13,8 @@ frontend {
     assembleScript.set("build")
 }
 
-val addPackage = tasks.register<Exec>("addPackage") {
-    outputs.upToDateWhen { false }
-    workingDir = projectDir
-    commandLine("yarn", "remove", "shared-types")
-    commandLine("yarn", "add", "file:../shared/build/libs/shared-types/")
-}
-
 tasks {
     "build" {
-        dependsOn(":shared:build")
         doLast {
             copy {
                 from("$projectDir/dist/")

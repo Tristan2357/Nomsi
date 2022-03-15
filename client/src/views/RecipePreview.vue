@@ -30,11 +30,12 @@
 
 <script lang="ts" setup>
 import axios from "axios";
-import type { Ingredient } from "shared-types";
-import { Recipe, Step } from "shared-types";
 import type { Ref } from "vue";
 import { onMounted, ref } from "vue";
 import { useRoute } from "vue-router";
+import type { Ingredient } from "../models/ingredient";
+import { Recipe } from "../models/recipe";
+import type { Step } from "../models/step";
 
 const route = useRoute();
 
@@ -44,14 +45,14 @@ const ingredients: Ref<Ingredient[]> = ref([]);
 
 onMounted(() => {
   axios
-    .get<Recipe>(`/recipe/${route.params.id}`)
-    .then((res) => {
-      recipe.value = res.data;
-      ingredients.value = recipe.value?.ingredients;
-      steps.value = recipe.value?.steps;
-    })
-    .catch((err) => {
-      console.log(err);
-    });
+      .get<Recipe>(`/recipe/${route.params.id}`)
+      .then((res) => {
+        recipe.value = res.data;
+        ingredients.value = recipe.value?.ingredients;
+        steps.value = recipe.value?.steps;
+      })
+      .catch((err) => {
+        console.log(err);
+      });
 });
 </script>
