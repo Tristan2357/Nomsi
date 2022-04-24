@@ -110,7 +110,6 @@ tasks {
     dependsOn(setDev)
   }
   "build" {
-    dependsOn(":shared:build")
     dependsOn(":client:build")
     dependsOn(fatJar)
     doLast {
